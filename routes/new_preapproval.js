@@ -11,8 +11,8 @@ var payload = config.getPayload({
 var preapprovals = {};
 
 
-var preapprovalItem = function (item) {
-	this.pKey = item.preapprovalKey;
+var preapprovalItem = function (item, preKey) {
+	this.pKey = preKey;
 	this.totalAmount = item.maxTotalAmountOfAllPayment;
 	this.startingDate = item.startingDate;
 	this.end = item.endingDate;
@@ -42,30 +42,29 @@ exports.getPreapprovals = function () {
 };
 
 exports.doPreapproval = function (req, res) {
-	var itemId = req.query.item;
-
-	payload.maxAmountPerPayment = req.query.maxAmountPerPayment;
-  	payload.maxNumberOfPayments = req.query.maxAmountPerPayment;
-  	payload.paymentPeriod = req.query.paymentPeriod;
+	var body = req.body;
+	payload.maxAmountPerPayment = body.maxAmountPerPayment;
+  	payload.maxNumberOfPayments = body.maxNumberOfPayments;
+  	payload.paymentPeriod = body.paymentPeriod;
 
 	paypalSdk.preapproval(payload, function (err, response) {
 		if(err){
 			return res.send(500, err);
 		}
 		else{
-			//console.log(response);
 			var payload2 = config.getPayload({
 				preapprovalKey: response.preapprovalKey
 			});
-			//console.log(payload2);
+			var pKey_aux = response.preapprovalKey;
 			paypalSdk.preapprovalDetails(payload2, function (err, resp){
 				if (err){
 					return res.send(500, err);
 				}
 				else{
 					console.log(resp);
-					var newApproval = new preapprovalItem(resp);
-					//console.log(newApproval);
+					console.log("--------------------------------------");
+					var newApproval = new preapprovalItem(resp, pKey_aux);
+					console.log(newApproval);
 					addPreapproval(newApproval);
 					res.redirect(response.preapprovalUrl);
 				}
