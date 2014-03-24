@@ -6,6 +6,5 @@ var purchases = store.getPurchases();
  */
 
 exports.index = function(req, res){
-  res.render('home', { title: 'Seleccion de articulo', items: products, purchases : purchases,
-  addItem : ["name", "numberPayments", "amount"] });
+  res.render('home_preapproval', { preapproval: ["maxNumberOfPayments", "maxAmountPerPayment", "paymentPeriod"] });
 };
