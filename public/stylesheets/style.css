@@ -1,0 +1,377 @@
+body {
+font-family: arial, sans-serif;
+font-size: 100%; /* best for all browser using em */
+padding:0; 
+margin:0;
+}
+
+*, html { 
+  box-sizing: border-box; 
+}
+
+article img { width:auto; max-width:100%; height:auto; }
+
+.sidebar a, article a, header a, footer a { color: #5F2170; }
+header a { text-decoration: none; }
+
+#wrapper {
+max-width: 960px; /* standard 1024px wide */
+margin: 0 auto;
+}
+
+/* css for <header> */
+header {
+  margin: 0px;
+  float: left;
+  width: 100%;
+}
+header hgroup { width: 100%; font-weight:normal; }
+
+#main-logo {
+  background: transparent url(/images/logo.png) no-repeat 0 0;
+  border-width:0  1px 0 0;
+  text-indent:-9999px;
+  line-height:0;
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 20px;
+  text-decoration:none;
+  height: 170px;
+}
+
+
+#container {
+  margin: 0;
+  width: 100%;
+}
+
+#container input {
+  height: 2.5em;
+  visibility: hidden;
+}
+
+#container label {
+  background: #ddd;
+  border-radius: 0.25em 0.25em 0 0;
+  color: #666;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 1em;
+  height: 2.5em;
+  line-height: 3em;
+  margin-right: 0.25em;
+  padding: 0 1.5em;
+  text-align: center;
+}
+
+#container input:hover+label {
+  background: #f1f1f1;
+  color: #888;
+}
+
+#container input:checked+label {
+  background: #181919;
+  color: #ccc;
+  position: relative;
+  z-index: 6;
+}
+
+#content {
+  background: #f1f1f1;
+  border-radius: 0 0.25em 0.25em 0.25em;
+  border: solid 2px #181919; 
+  min-height: 20em;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}
+
+#content div {
+  opacity: 0;
+  padding: 1.5em;
+  position: absolute;
+  z-index: -100;
+}
+
+#content-1 p {
+ clear: both;
+ margin-bottom: 1em;
+}
+#content-1 p.left img {
+ float: left;
+ margin-right: 1em;
+}
+#content-1 p.last {
+ margin-bottom: 0;
+}
+#content-2 p {
+ float: left;
+ width: 48.5%;
+}
+#content-2 p.column-right {
+ margin-left: 3%;
+}
+#content-2 p img {
+ display: block;
+ margin: 0 auto 1em auto;
+}
+
+#container input#tab-1:checked ~ #content #content-1,
+#container input#tab-2:checked ~ #content #content-2 {
+ opacity: 1;
+ z-index: 100;
+}
+
+/* css for <section class='content'> */
+section.content { width: 90%; float:left; min-height: 300px; }
+.content article { width:100%; float:left; padding: 0 0 1em; margin: 0 0 1em; border-bottom: 1px solid #ddd; }
+article .entry { clear:both; padding: 0 0 1em; }
+article { min-height: 300px;}
+h1.post-title { font-size: 1.8em; margin:0; padding:0;}
+.entry.post-meta { color: #888; }
+.entry.post-meta span { padding: 0 1em 0 0; }
+.entry.post-content { font-size: 1.125em; margin:0; padding:0;}
+
+/* css for <aside class='sidebar'> */
+aside.sidebar { width: 25%; float:right; }
+aside.sidebar ul {
+  width:100%;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  list-style: none;
+}
+aside.sidebar ul li {
+  width:100%;
+  margin: 0px 0px 2em;
+  padding: 0px;
+  float: left;
+  list-style: none;
+}
+aside.sidebar ul li ul li {
+  margin: 0px 0px 0.2em;
+  padding: 0px;
+}
+aside.sidebar ul li ul li ul li {
+  margin: 0px;
+  padding: 0px 0px 0px 1em;
+  width: 90%;
+  font-size: 0.9em;
+}
+aside.sidebar ul li h3.widget-title {
+  width:100%;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+    font-size: 1.45em;
+}
+
+/* css for <footer> */
+footer {
+  width: 98%;
+  float:left;
+  padding: 1%;
+  background-color: white;
+  margin-top: 2em;
+}
+footer .footer-left { width: 45%; float:left; text-align:left; }
+footer .footer-right { width: 45%; float:right; text-align:right; }
+
+
+/* ipad 768px */
+@media only screen and (min-width:470px) and (max-width:770px){
+/*body { background-color: red; } /*lets add some background color so we know which dimension we're in */
+#wrapper { width:96%; font-size: 0.6875em; }
+section.content, aside.sidebar { width:100%; }
+}
+
+/* iphone 468px */
+@media only screen and (min-width:270px) and (max-width:470px){
+body { background-color: yellow; } /*lets add some background color so we know which dimension we're in */
+#wrapper { width:96%; font-size: 0.6875em; }
+section.content, aside.sidebar { width:100%; }
+}
+
+/* ::: Formularios :::  */
+
+
+.sstext  {
+  width: 30%;
+  min-width: 75px;
+  max-width: 100px;
+}
+
+.stext {
+  width: 30%;
+  min-width: 150px;
+  max-width: 250px;
+}
+
+.text {
+  width: 75%;
+  min-width: 250px;
+  max-width: 500px;
+}
+
+textarea {
+  resize: none;
+}
+
+.registro {
+  margin: 50px;
+}
+
+.fregistro {
+  padding-left: 100px;
+}
+
+.freg {
+  padding: 6px;
+}
+
+.form-horizontal .control-label,
+.form-horizontal .radio,
+.form-horizontal .checkbox,
+.form-horizontal .radio-inline,
+.form-horizontal .checkbox-inline {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 7px;
+}
+
+.form-horizontal .form-group {
+  margin-left: -15px;
+  margin-right: 15px;
+}
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.form-horizontal .form-group:after {
+  clear: both;
+}
+.form-horizontal .form-control-static {
+  padding-top: 7px;
+}
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .form-inline .form-control  {
+    display: inline-block;
+  }
+  .form-inline .radio,
+  .form-inline .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  .form-inline .radio input[type="radio"],
+  .form-inline .checkbox input[type="checkbox"] {
+    float: none;
+    margin-left: 0;
+  }
+}
+
+/* INPUTS */
+
+.form-control {
+  display: block;
+  height: 25px;
+  padding: 1px 15px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 7px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+select {
+  border-radius: 7px;
+  border: 1px solid #cccccc;
+  height: 25px;
+  line-height: 1.428571429;
+  color: #555555;
+  padding: 1px 3px;
+}
+
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.form-control:-moz-placeholder {
+  color: #999999;
+}
+.form-control::-moz-placeholder {
+  color: #999999;
+}
+.form-control:-ms-input-placeholder {
+  color: #999999;
+}
+.form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+textarea.form-control {
+  height: auto;
+}
+
+.form-control-static {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .form-inline .form-control  {
+    display: inline-block;
+  }
+  .form-inline .radio,
+  .form-inline .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  .form-inline .radio input[type="radio"],
+  .form-inline .checkbox input[type="checkbox"] {
+    float: none;
+    margin-left: 0;
+  }
+}
+
+.radiopoints {
+  margin-left: 50px;
+  margin-right: 5px;
+}

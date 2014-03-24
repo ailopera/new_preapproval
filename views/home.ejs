@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <title>Paypal Demo</title>
+</head>
+<body>
+  <div id="wrapper"><!-- start html block -->
+    <header>
+      <hgroup>
+        <h1 class="site-title" id="main-logo"><a href="#">Paypal Demo</a></h1>
+      </hgroup>
+    </header>
+
+    <div id="container">
+      <!--Pestaña 1 activa por defecto-->
+      <input id="tab-1" type="radio" name="tab-group" checked="checked" />
+      <label for="tab-1">Merchant</label>
+      <!--Pestaña 2 inactiva por defecto-->
+      <input id="tab-2" type="radio" name="tab-group" />
+      <label for="tab-2">Client</label>
+      <div id="content">
+        <div id="content-1">
+          <table>
+            <thead>
+              <tr class="list">
+                <th class="list_head">Nombre del producto</th>
+                <th class="list_head">Cantidad por pago</th>
+                <th class="list_head no_border">Pagos restantes</th>
+              </tr>
+            </thead>
+            <% for (var key in purchases){ %>
+            <tr class="list">
+              <td class="list_body"><%= purchases[key].item.name %></td>
+              <td class="list_body"><%= purchases[key].amount %> EUR </td>
+              <td class="list_body no_border"><%= purchases[key].paymentsLeft %></td>
+            </tr>
+             <% } %>
+          </table>
+        <form class="form-horizontal" method="post" action="/addItem">
+            <table>
+              <% for (var field in addItem){ %>
+                <tr><div class="form-group">
+                    <td><label class="freg control-label"><%= addItem[field] %> </label></td>
+                    <td><input style="visibility:visible;" class="form-control" type="text" name="<%= addItem[field] %>" /></td>
+                </div></tr>
+              <% } %>
+            </table>
+            <input style="visibility:visible;" class="button body" type="submit" value="Aceptar" />
+        </form>
+        </div>
+        <!--Contenido de la Pestaña 2-->
+        <div id="content-2">
+          <h1> <%= title %> </h1>
+          <ul>
+            <% for (var key in items){ %>
+            <li>
+              <a href='preapproval/?item=<%= key %>'>
+                <%= items[key].name %>
+              </a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <article class="post">
+
+
+        <div></div>
+
+      </article>
+      <!-- end post 1 --></section>
+
+
+      <footer>
+        <div class="footer-left">Open Innovation Lab. Universidad Politéncica de Madrid. 2014</div>
+      </footer>
+
+    </body>
+    </html>
